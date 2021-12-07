@@ -1,7 +1,5 @@
 import React from "react";
-let mysql = require("mysql");
 import getData from "../db.js";
-
 import {
   LineChart,
   Line,
@@ -11,71 +9,48 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+require("mysql");
 
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-  },
-];
+const data = [];
+getData().then((datas) => {
+  console.log(datas);
+  datas.forEach((dato) => {
+    data.push({
+      name: dato.timestamp,
+      temperatura: dato.temperatura,
+      umidita: dato.umidita,
+    });
+  });
+});
+console.log(data);
 
-export default function App() {
-  console.log(getData());
-  return (
-    <LineChart
-      width={1000}
-      height={300}
-      data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Line
-        type="monotone"
-        dataKey="pv"
-        stroke="#8884d8"
-        activeDot={{ r: 8 }}
-      />
-      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-    </LineChart>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <LineChart
+        width={1800}
+        height={300}
+        data={data}
+        margin={{
+          top: 5,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Line
+          type="monotone"
+          dataKey="umidita"
+          stroke="#8884d8"
+          activeDot={{ r: 8 }}
+        />
+        <Line type="monotone" dataKey="temperatura" stroke="#82ca9d" />
+      </LineChart>
+    );
+  }
 }

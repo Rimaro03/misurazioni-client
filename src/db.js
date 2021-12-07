@@ -1,18 +1,9 @@
-export default getData = () => {
-    let connection = mysql.createConnection({
-        host: '192.168.5.117',
-        user: 'admin',
-        password: '7907',
-        database: 'misurazioni',
-    });
+const axios = require('axios');
 
-    connection.connect();
-
-
-    connection.query('SELECT * FROM misure', function (error, results, fields) {
-        if (error) throw error;
-        return results;
-    });
-
-    connection.end();
+export default function getData() {
+    return axios.get("http://localhost:3002/api/get")
+        .then(res =>
+            res.data
+        )
+        .catch(error => console.log(error));
 }
