@@ -1,5 +1,5 @@
 import React from "react";
-import getData from "../db.js";
+import getDBdata from "../db.js";
 import {
   LineChart,
   Line,
@@ -11,26 +11,33 @@ import {
 } from "recharts";
 require("mysql");
 
-const data = [];
-getData().then((datas) => {
-  console.log(datas);
-  datas.forEach((dato) => {
-    data.push({
-      name: dato.timestamp,
-      temperatura: dato.temperatura,
-      umidita: dato.umidita,
-    });
-  });
-});
-console.log(data);
+export default class umiChart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    };
+  }
 
-export default class App extends React.Component {
+  componentDidMount() {
+    getDBdata().then((datas) => {
+      let data = [];
+      datas.forEach((dato) => {
+        data.push({
+          name: dato.timestamp,
+          umidita: dato.umidita,
+        });
+      });
+      this.setState({ data: data });
+    });
+  }
+
   render() {
     return (
       <LineChart
-        width={1800}
+        width={1000}
         height={300}
-        data={data}
+        data={this.state.data}
         margin={{
           top: 5,
           right: 30,
@@ -46,10 +53,9 @@ export default class App extends React.Component {
         <Line
           type="monotone"
           dataKey="umidita"
-          stroke="#8884d8"
+          stroke="#42bcf5"
           activeDot={{ r: 8 }}
         />
-        <Line type="monotone" dataKey="temperatura" stroke="#82ca9d" />
       </LineChart>
     );
   }
