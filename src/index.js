@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TempChart from './components/tempChart';
-import UmiCHart from './components/umiChart';
+import Chart from './components/chart';
 import TempData from './components/tempData';
+import UmiData from './components/umiData';
 import './style/style.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="tempDiv">
-      <TempChart className="tempChart" />
-      <TempData />
+    <div className="chartDiv">
+      <Chart className="chart" />
     </div>
-
-    <div className="umiDiv">
-      <UmiCHart className="umiChart" />
+    <div className='dataDiv'>
+      <TempData />
+      <UmiData />
     </div>
   </React.StrictMode>,
   document.getElementById('root')

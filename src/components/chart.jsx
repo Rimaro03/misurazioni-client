@@ -24,7 +24,11 @@ export default class umiChart extends React.Component {
       let data = [];
       datas.forEach((dato) => {
         data.push({
-          name: dato.timestamp,
+          name:
+            new Date(dato.timestamp * 1000).getHours() +
+            ": " +
+            new Date(dato.timestamp * 1000).getMinutes(),
+          temperatura: dato.temperatura,
           umidita: dato.umidita,
         });
       });
@@ -52,10 +56,11 @@ export default class umiChart extends React.Component {
         <Legend />
         <Line
           type="monotone"
-          dataKey="umidita"
-          stroke="#42bcf5"
+          dataKey="temperatura"
+          stroke="#f5a742"
           activeDot={{ r: 8 }}
         />
+        <Line type="monotone" dataKey="umidita" stroke="#42bcf5" />
       </LineChart>
     );
   }

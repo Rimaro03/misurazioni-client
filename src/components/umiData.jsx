@@ -19,8 +19,8 @@ export default class TempData extends React.Component {
   render() {
     return (
       <div>
-        <h1>Temperatura</h1>
-        <p>{this.state.data.temperatura}</p>
+        <h1>Umidita</h1>
+        <p>{this.state.data.umidita}</p>
       </div>
     );
   }
