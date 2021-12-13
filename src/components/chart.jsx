@@ -39,8 +39,8 @@ export default class umiChart extends React.Component {
   render() {
     return (
       <LineChart
-        width={1000}
-        height={300}
+        width={1100}
+        height={500}
         data={this.state.data}
         margin={{
           top: 5,

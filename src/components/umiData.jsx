@@ -18,9 +18,9 @@ export default class TempData extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Umidita</h1>
-        <p>{this.state.data.umidita}</p>
+      <div className="umiDiv">
+        <h3>Umidita</h3>
+        <h3>{this.state.data.umidita}</h3>
       </div>
     );
   }

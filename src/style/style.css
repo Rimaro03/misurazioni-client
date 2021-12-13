@@ -1,20 +1,65 @@
-
-
+#root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 body{
-    background-image: url("../1092577.jpg");
+    background-color: rgb(233, 232, 231);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
 }
 
-.recharts-wrapper{
-    margin-top: 5%;
-    margin-bottom: 5%;
+.App{
+    width: 55%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 .chartDiv{
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
+    padding: 2%;
+    width: 99%;
+}
+
+.App-header{
+    width: auto;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
+.dataDiv{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+.dataDiv div{
+    padding: 1%;
+}
+
+.tempDiv,
+.umiDiv{
+    background-color: white;
+    border-radius: 2%;
+    width: 20%;
+    margin-right: 3%;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+}
+
+.tempDiv h3{
+    margin: 1%;
+    color: "#f5a742";
+}
+.umiDiv h3 {
+    margin: 1%;
+    color: "#42bcf5";
 }
