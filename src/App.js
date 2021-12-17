@@ -4,26 +4,27 @@ import Chart from './components/chart';
 import TempData from './components/tempData';
 import UmiData from './components/umiData';
 import './style/style.css';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 export default class App extends React.Component {
     render() {
         return (
-            <div className="App">
-                <div className="App-header">
-                    <h1>DASHBOARD</h1>
-                </div>
-                <div className='dataDiv'>
-                    <TempData />
-                    <UmiData />
-                </div>
-                <div className="chartDiv">
-                    <Chart className="chart" />
-                </div>
-            </div>
-        )
+            <Box sx={{ flexGrow: 1 }}>
+                <Grid container spacing={2}>
+                    <Grid item xs={6} md={8}>
+                        <TempData />
+                    </Grid>
+                    <Grid item xs={6} md={4}>
+                        <UmiData />
+                    </Grid>
+                    <Grid item xs={12} md={12}>
+                        <Chart className="chart" />
+                    </Grid>
+                </Grid>
+            </Box>
+        );
     }
 }
