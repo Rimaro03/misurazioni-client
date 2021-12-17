@@ -3,7 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.7.1",
+=======
+    "@date-io/date-fns": "^2.11.0",
+    "@date-io/dayjs": "^2.11.0",
+    "@date-io/luxon": "^2.11.1",
+    "@date-io/moment": "^2.11.0",
+    "@emotion/react": "^11.7.0",
+>>>>>>> 31b39101b70c05ac9a75d55cd8b310c513aeaa19
     "@emotion/styled": "^11.6.0",
     "@fontsource/roboto": "^4.5.1",
     "@mui/material": "^5.2.4",
